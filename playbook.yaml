@@ -1,4 +1,4 @@
-- hosts:
+- hosts: localhost
   tasks:
   - name: Add a VMware vSwitch formacion
     community.vmware.vmware_vswitch:
