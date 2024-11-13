@@ -1,0 +1,8 @@
+esxi_hostnames: 
+- es1esxi01p.ria.local 
+- es1esxi02p.ria.local 
+- es1esxi03p.ria.local 
+- es1esxi04p.ria.local 
+- es1esxi05p.ria.local 
+- es1esxi06p.ria.local 
+esxi_username: root
