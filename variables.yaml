@@ -1,0 +1,3 @@
+esxi_hostname: es1esxi02p.ria.local 
+esxi_username: root
+switch_name:   formacion_prueba
