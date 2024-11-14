@@ -10,7 +10,7 @@ function create_network {
                 --extra-vars "@Network/variables.yaml" \
                 --extra-vars "@Virtualswitch/variables.yaml" \
                 --extra-vars "@config/connection.yaml" \
-                --extra-vars "@config/secretos.yaml" \ 
+                --extra-vars "@config/secretos.yaml" \
                 --extra-vars "state=present"
 }
 
@@ -19,7 +19,7 @@ function destroy_network {
                 --extra-vars "@Network/variables.yaml" \
                 --extra-vars "@Virtualswitch/variables.yaml" \
                 --extra-vars "@config/connection.yaml" \
-                --extra-vars "@config/secretos.yaml" \ 
+                --extra-vars "@config/secretos.yaml" \
                 --extra-vars "state=absent"
   ansible-playbook Virtualswitch/playbook.yaml \
                 --extra-vars "@Virtualswitch/variables.yaml" \
