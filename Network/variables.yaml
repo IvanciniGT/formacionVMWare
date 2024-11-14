@@ -1,5 +1,2 @@
       portgroup_name: formacion_data
-      switch_name: formacion_prueba
       vlan_id: 0
-      num_ports: 3
-      port_binding: static

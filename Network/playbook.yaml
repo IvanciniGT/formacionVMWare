@@ -1,30 +1,25 @@
 - hosts: localhost
+  gather_facts: false
   tasks:
-  - name: Create vlan portgroup
-    community.vmware.vmware_dvs_portgroup:
+  - name: Make sure portgroup exists on each host (esxi)
+    community.vmware.vmware_portgroup:
       hostname: '{{ item }}'
       username: '{{ esxi_username }}'
       password: '{{ esxi_password }}'
-      portgroup_name: '{{ portgroup_name }}'
-      switch_name: '{{ switch_name }}'
-      vlan_id: '{{ vlan_id }}'
-      num_ports: '{{ num_ports }}'
-      port_binding: '{{ port_binding }}'
-      state: present
-      network_policy:
-        inherited: true
-      port_policy:
-        block_override: true
-        ipfix_override: true
-        live_port_move: true
-        network_rp_override: true
-        port_config_reset_at_disconnect: true
-        mac_management_override: true
-        shaping_override: true
-        traffic_filter_override: true
-        uplink_teaming_override: true
-        vendor_config_override: true
-        vlan_override: true
 
+      esxi_hostname: "{{ item }}"
+
+      switch: "{{ switch_name }}"
+      portgroup: "{{ portgroup_name }}"
+      vlan_id: '{{ vlan_id }}'
+
+      #security:
+      #    promiscuous_mode: false
+      #    mac_changes: false
+      #    forged_transmits: false
+      traffic_shaping:
+          enabled: false
+
+      state:    '{{ state }}'
     delegate_to: localhost
     loop: '{{ esxi_hostnames }}'

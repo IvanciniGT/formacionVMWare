@@ -1,4 +1,5 @@
 - hosts: localhost
+  gather_facts: false
   tasks:
   - name: Add a VMware vSwitch formacion
     community.vmware.vmware_vswitch:
@@ -7,5 +8,6 @@
       password: '{{ esxi_password }}'
       switch:   '{{ switch_name }}'
       mtu:      9000
+      state:    '{{ state }}'
     delegate_to: localhost
     loop: '{{ esxi_hostnames }}'
